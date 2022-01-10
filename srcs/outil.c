@@ -6,10 +6,17 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:00:06 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/01/10 16:44:23 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/01/10 16:58:46 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+void	ft_swap(int *a, int *b)
+{
+	int temp;
 
+	temp = *a;
+	*a = *b;
+	*b = temp
+}

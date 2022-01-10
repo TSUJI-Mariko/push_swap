@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 12:56:30 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/01/10 17:02:09 by mtsuji           ###   ########.fr       */
+/*   Created: 2022/01/10 18:44:40 by mtsuji            #+#    #+#             */
+/*   Updated: 2022/01/10 18:59:30 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef "PUSH_SWAP_H"
-# define "PUSH_SWAP_H"
-# include <unistd.h>
-# include <stdlib.h>
+#include "../includes/push_swap.h"
 
-typedef	strucrt	s_stack
+int	main(int argc, char **argv)
 {
-	int	number;
-	struct s_stack	next;
-}	t_stack;
+	if (argc < 2)
+		return (1);
 
-#endif
+}
