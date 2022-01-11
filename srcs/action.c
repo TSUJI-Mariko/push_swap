@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:59:10 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/01/10 18:43:36 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/01/11 16:27:38 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_rab(t_stack **stack)
 	if (*stack == NULL)
 		return (0);
 	first = *stack;
-	stack = (*stack)->next;
+	*stack = (*stack)->next;
 	last = *stack;
 	while (last->next != NULL)
 		last = last->next
@@ -51,39 +51,39 @@ int	ft_sab(t_stack **stack)
 {
 	t_stack	*temp;
 
-	if (*stack != NULL && *stack-> NULL)
+	if (*stack != NULL && (*stack)->next != NULL)
 	{
-		temp = &(*stack)->num;
-		&(*stack)->num = &(*stack)->next->num;
-		&(*stack)->next->num = temp;
+		temp = (*stack)->num;
+		(*stack)->num = (*stack)->next->num;
+		(*stack)->next->num = temp;
 	}
 	return (0);
 }
 
-int pab(t_stack **to, t_stack **from)
+int	pab(t_stack **to, t_stack **from)
 {
 	t_stack	*temp;
 	t_stack	*stack_to;
-	t_stack	*stack_from
+	t_stack	*stack_from;
 
 	stack_to = *to;
 	stack_from = *from;
 	if (*stack_from == NULL)
 		return (0);
-	temp = *stack_from;
+	temp = stack_from;
 	stack_from = stack_from->next;
 	stack_to = *to;
 
 	if (to == NULL)
 	{
-		stack_to = *temp;
+		stack_to = temp;
 		stack_to->next = NULL;
 		*to = stack_to;
 	}
 	else
 	{
 		temp->next = stack_to;
-		*to = tmp;
+		*to = temp;
 	return (0);
 }
 
