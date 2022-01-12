@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:59:10 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/01/11 16:27:38 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/01/12 17:55:13 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_rab(t_stack **stack)
 	*stack = (*stack)->next;
 	last = *stack;
 	while (last->next != NULL)
-		last = last->next
+		last = last->next;
 	last->next = first;
 	first->next = NULL;
 	return (0);
