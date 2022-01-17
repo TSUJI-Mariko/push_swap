@@ -34,9 +34,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 ${NAME}:	${OBJS}
 			make all -C ${LIBFT}
-			cp ${LIBFT} ${LIBFT_A}
-			mv ${LIBFT_A} ${NAME}
-			${CC} -o ${NAME} ${OBJS}
+			${CC} -o ${NAME} ${OBJS} -L ${LIBFT}
 
 all:	${NAME}
 

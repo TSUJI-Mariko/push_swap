@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef "PUSH_SWAP_H"
+# ifndef "PUSH_SWAP_H"
 # define "PUSH_SWAP_H"
 # include <unistd.h>
 # include <stdlib.h>
@@ -20,5 +20,13 @@ typedef	strucrt	s_stack
 	int	number;
 	struct s_stack	next;
 }	t_stack;
+
+typedef struct s_stacks
+{
+	t_stack a;
+	t_stack b;
+	t_stack temp;
+	struct s_stacks	next;
+}	t_stacks;
 
 #endif
