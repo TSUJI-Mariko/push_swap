@@ -9,7 +9,7 @@
 /*   Updated: 2022/01/10 13:12:42 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "../includes/push_swap.h"
 
 void	ft_putchar(char c)
@@ -24,7 +24,7 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		ft_putchar(str[i])
+		ft_putchar(str[i]);
 		i++;
 	}
 }
@@ -79,3 +79,4 @@ void	ft_putnbr(int nb)
 		ft_putchar(c);
 	}
 }
+*/

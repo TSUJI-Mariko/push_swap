@@ -12,13 +12,13 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_ra(t_stack **a, int i)
+void	ft_ra(t_stack **a, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
 	
 	if (*a == NULL)
-		return (0);
+		return ;
 	first = *a;
 	*a = (*a)->next;
 	last = *a;
@@ -27,18 +27,17 @@ int	ft_ra(t_stack **a, int i)
 	last->next = first;
 	first->next = NULL;
 	if (i == 1)
-		ft_putstr("ra\n");
-	return (0);
+		ft_putendl_fd("ra", 1);
 }
 
-int	ft_rb(t_stack **b, int i)
+void	ft_rb(t_stack **b, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
 
 	if (*b == NULL)
-		return (0);
-	first = *stack;
+		return ;
+	first = *b;
 	*b = (*b)->next;
 	last = *b;
 	while (last->next != NULL)
@@ -46,27 +45,24 @@ int	ft_rb(t_stack **b, int i)
 	last->next = first;
 	first->next = NULL;
 	if (i == 1)
-		ft_putstr("rb\n")
-	return (0);
+		ft_putendl_fd("rb", 1);
 }
-
-int	ft_rr(t_stacks **stack, int i)
+/*
+void	ft_rr(t_stacks **stack, int i)
 {
-	ft_ra(stack->a, 0);
-	ft_rb(stack->b, 0);
+	ft_ra((*stack)->a, 0);
+	ft_rb((*stack)->b, 0);
 	if (i == 1)
-		ft_putstr("rr\n");
-	return (0);
-
+		ft_putendl_fd("rr", 1);
 }
-
-int	rra(t_stack **a, int i)
+*/
+void	rra(t_stack **a, int i)
 {
 	t_stack	*last;
 	t_stack	*prev;
 
 	if (*a == NULL)
-		return (0);
+		return ;
 	last = *a;
 	while (last->next != NULL)
 	{
@@ -76,17 +72,16 @@ int	rra(t_stack **a, int i)
 	last->next = *a;
 	prev->next = NULL;
 	if (i == 1)
-		ft_putstr("rra\n");
-	return (0);
+		ft_putendl_fd("rra", 1);
 }
 
-int	rrb(t_stack **b, int i)
+void	rrb(t_stack **b, int i)
 {
 	t_stack	*last;
 	t_stack	*prev;
 
 	if (*b == NULL)
-		return (0);
+		return ;
 	last = *b;
 	while (last->next != NULL)
 	{
@@ -96,20 +91,19 @@ int	rrb(t_stack **b, int i)
 	last->next = *b;
 	prev->next = NULL;
 	if (i == 1)
-		ft_putstr("rrb\n");
-	return (0);
+		ft_putendl_fd("rrb", 1);
 }
-
-int	ft_rrr(t_stacks **stack, int i)
+/*
+void	ft_rrr(t_stack **stack, int i)
 {
-	ft_rra(stack->a, 0);
-	ft_rrb(stack->b, 0);
+	ft_rra((*stack)->a, 0);
+	ft_rrb((*stack)->b, 0);
 	if (i == 1)
-		ft_putstr("rrr\n");
-	return (0);
+		ft_putendl_fd("rrr", 1);
 }
-
-int	ft_sa(t_stack **a, int i)
+*/
+/*
+void	ft_sa(t_stack **a, int i)
 {
 	t_stack	*temp;
 
@@ -120,11 +114,10 @@ int	ft_sa(t_stack **a, int i)
 		(*a)->next->num = temp;
 	}
 	if (i == 1)
-		ft_putstr("sa\n");
-	return (0);
+		ft_putendl_fd("sa", 1);
 }
 
-int	ft_sb(t_stack **b, int i)
+void	ft_sb(t_stack **b, int i)
 {
 	t_stack	*temp;
 
@@ -135,20 +128,18 @@ int	ft_sb(t_stack **b, int i)
 		(*b)->next->num = temp;
 	}
 	if (i == 1)
-		ft_putstr("sa\n");
-	return (0);
+		ft_putendl_fd("sb", 1);
 }
 
-int	ft_ss(t_stacks **stack, int i)
+void	ft_ss(t_stacks **stack, int i)
 {
-	ft_sa(stack->a, 0);
-	ft_sb(stack->b, 0);
+	ft_sa((*stack)->a, 0);
+	ft_sb((*stack)->b, 0);
 	if (i == 1)
-		ft_putstr("ss\n");
-	return (0);
+		ft_putendl_fd("ss", 1);
 }
-
-int	pa(t_stack **a, t_stack **b) //to = a, from = b;
+*/
+void	pa(t_stack **a, t_stack **b) //to = a, from = b;
 {
 	t_stack	*temp;
 	t_stack	*stack_a;
@@ -156,12 +147,12 @@ int	pa(t_stack **a, t_stack **b) //to = a, from = b;
 
 	stack_a = *a;
 	stack_b = *b;
-	if (*stack_b == NULL)
-		return (0);
+	if (stack_b == NULL)
+		return ;
 	temp = stack_b;
 	stack_b = stack_b->next;
 	stack_a = *a;
-	if (to == NULL)
+	if (a == NULL)
 	{
 		stack_a = temp;
 		stack_a->next = NULL;
@@ -171,7 +162,7 @@ int	pa(t_stack **a, t_stack **b) //to = a, from = b;
 	{
 		temp->next = stack_a;
 		*a = temp;
-	return (0);
+	}
 }
 
 //pbのコマンドの作り方を考えること

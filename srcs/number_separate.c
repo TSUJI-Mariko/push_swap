@@ -11,29 +11,39 @@
 /* ************************************************************************** */
 
 
-#include "../include/push_swap .h"
+#include "../includes/push_swap.h"
 
-void    array_separate(int argc, char **argv, t_stacks ---)
+int    number_separate(int argc, char **argv, t_stack *stack)
 {
-    int count_space;
+    int count_separator;
     int i;
     int j;
-    char **num;
+    int *buff;
     char **temp;
 
     i = 1;
     while (i < argc)
     {
-        count_space = count_space(argv[i]);
-        num = ft_split(argv[i], count_space);
+        count_separator = count_space(argv[i]);
+        temp = ft_split(argv[i], count_separator);
+        buff = (int *)malloc(sizeof(int) * count_separator);
         j = 0;
-        while (count_space > j)
+        while (count_separator > j)
         {
-            temp[j] = ft_atoi(num[j]);
-            free(num[j])
+            buff[j] = ft_atoi(temp[j]);
+            free(temp[j]);
         }
-        free(num);
+        free(temp);
         i++;
     }
-
+    j = 0;
+    while (buff[j])
+    {
+        stack->num = buff[j]; 
+        free(buff);
+        j++;
+    }
+    free(buff);
+    return (j);
 }
+

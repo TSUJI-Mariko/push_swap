@@ -12,9 +12,15 @@
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
+	/*
+	t_stacks	*stacks;
+	//他にもstruct追加する
+	
 	if (argc < 2)
 		return (1);
-
+		*/
+	printf("bonjour/n");
+	return (0);
 }

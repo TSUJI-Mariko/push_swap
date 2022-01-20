@@ -1,8 +1,8 @@
-#include <stdio.h>
+#include "../includes/push_swap.h"
+
 //#define MAX 100000
 
 //int stack[MAX];
-
 
 int partition(int *stack, int start, int end)
 {
@@ -41,6 +41,7 @@ void	quicksort(int *stack, int start, int end)
 		quicksort(stack, index + 1, end);
 	}
 }
+/*
 int main(void)
 {
 	int	*stack;
@@ -59,3 +60,4 @@ int main(void)
 	printf("\n");
 	return (0);
 }
+*/

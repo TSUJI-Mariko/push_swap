@@ -6,20 +6,27 @@
 #    By: mtsuji <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 16:21:07 by mtsuji            #+#    #+#              #
-#    Updated: 2022/01/13 14:51:44 by mtsuji           ###   ########.fr        #
+#    Updated: 2022/01/17 19:51:38 by mtsuji           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
-SRCS	=	./srcs/	push_swap.c\
-			./srcs/	action.c\
+SRCS	=	./srcs/push_swap.c	\
+			./srcs/action.c	\
+			./srcs/error_check.c	\
+			./srcs/number_separate.c	\
+			./srcs/outil.c	\
+			./srcs/print_helper.c	\
+			./srcs/quick_sort.c	\
+			./srcs/short_sort.c	\
+			./srcs/stack_create.c\
 
-OBJS	=	${SRCS:.c=.o}
+OBJS	=	$(SRCS:.c=.o)
 
-HEADER	=	./includes/push_swap.h
+HEADER	=	./includes/
 
-LIBFT	=	libft
+LIBFT	=	./libft/
 
 LIBFT_A	=	./libft/libft.a
 
@@ -27,24 +34,25 @@ CC	=	gcc
 
 RM	=	rm -f
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address -g3
 
 .c.o:
-	${CC} ${CFLAGS} -I ${HEADER} -c $< -o ${<:.c=.o}
+	$(CC) $(CFLAGS) -I $(HEADER) -I $(LIBFT) -c $< -o $(<:.c=.o)
 
-${NAME}:	${OBJS}
-			make all -C ${LIBFT}
-			${CC} -o ${NAME} ${OBJS} -L ${LIBFT}
-
-all:	${NAME}
+$(NAME):	$(OBJS) $(LIBFT)
+			@make -C $(LIBFT)
+			ar rcs $(LIBFT_A) $(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) -o $(NAME)
+			
+all:	$(NAME)
 
 clean:
-		${MAKE}  clean -C ${LIBFT}
-		${RM} ${OBJS}
+		$(MAKE) clean -C $(LIBFT)
+		$(RM) $(OBJS)
 
 fclean:	clean
-		${MAKE} clean -C ${LIBFT}
-		${RM} ${NAME}
+		$(MAKE) fclean -C $(LIBFT)
+		$(RM) $(NAME)
 
 re:	fclean all
 

@@ -12,30 +12,32 @@
 
 #include "../includes/push_swap.h"
 
-t_stack creation(void)
+t_stack *creation(void)
 {
     t_stack *stack;
-    
-    stack = (t_stack*)malloc(sizeof(s_stack));
-    if (stack == NULL)
-        return (NULL);
+
+    stack = (t_stack*)malloc(sizeof(t_stack));
+    stack->num = 0;
+    stack->next = NULL;
     return (stack);
 }
 
-t_stack stack_delete(t_stack **stack)
+void stack_delete(t_stack **stack)
 {
-    t_stack **temp;
-    t_stack **delete;
+    t_stack *temp;
+    t_stack *delete;
 
-    *temp = *stack;
-    while (temp != NULL)
+    temp = *stack;
+    while (!temp)
+    {
         delete = temp;
-        temp = stack->next;
+        temp = (*stack)->next;
         free(delete);
-        *stack = NULL;
+    }
+    stack = NULL;
 }
-
-t_stack *put_num_from_arg(char **argv, s_stack *stack)
+/*
+t_stack *put_num_from_arg(int argc, char **argv, t_stack *stack)
 {
     int i;
 
@@ -43,9 +45,9 @@ t_stack *put_num_from_arg(char **argv, s_stack *stack)
     {
         while (argv[i])
         {
-            stack->num[i] = ft_atoi(argv[i])
+            stack->num[i] = ft_atoi(argv[i]);
             i++;
         }
     }
-    return (i)
-}
+    return (i);
+}*/

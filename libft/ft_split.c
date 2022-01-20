@@ -12,21 +12,22 @@
 
 #include "libft.h"
 
-char	count_space(const char *str)
+int	count_space(const char *str)
 {
 	int	words;
-	int	state;
+	int	i;
 
+	i = 0;
 	words = 0;
-	while (*str != '\0')
+	while (str[i] != '\0')
 	{
-		if (*str != '\t' && *str != ' ')
+		if (str[i] != '\t' && str[i] != ' ')
 		{
 			words++;
-			while (*str != '\t' && *str != ' ' && *str != '\0')
-			*str++;
+			while (str[i] != '\t' && str[i] != ' ' && str[i] != '\0')
+			i++;
 		}
-		*str++;
+		i++;
 	}
 	return (words);
 }
@@ -78,7 +79,7 @@ char	**ft_split(char const *s, int c)
 	}
 	return ((char**)dest);
 }
-
+/*
 int				main(void)
 {
 	char	**tab;
@@ -97,3 +98,4 @@ int				main(void)
 		i++;
 	}
 }
+*/
