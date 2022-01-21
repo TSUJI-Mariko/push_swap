@@ -13,7 +13,7 @@
 
 #include "../includes/push_swap.h"
 
-int    number_separate(int argc, char **argv, t_stack *stack)
+int    number_separate(int argc, char **argv, t_stack **stack)
 {
     int count_separator;
     int i;
@@ -37,13 +37,23 @@ int    number_separate(int argc, char **argv, t_stack *stack)
         i++;
     }
     j = 0;
-    while (buff[j])
+    while (buff[j])//多分関数を別に分けて作ったほうがよい
     {
-        stack->num = buff[j]; 
+        (*stack)->num = buff[j]; 
         free(buff);
         j++;
     }
     free(buff);
     return (j);
 }
-
+/*
+void    stacking(t_stack *stack, int *buff, int count)
+{
+    int i;
+    
+    i = 0;
+    while (count > i)
+        stack->a[stack->size + i] = buff[i];
+    stack->size += count;
+    free(buff);
+}*/

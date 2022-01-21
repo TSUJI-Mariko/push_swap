@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:52:38 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/01/12 12:35:31 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/01/20 16:00:29 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,17 @@ void	sort_three(t_stack **stack)
 	else if ((*stack)->num < (*stack)->next->num &&
 		(*stack)->next->num > (*stack)->next->next->num &&
 		(*stack)->num < (*stack)->next->next->num)
+	{
 		ft_putendl_fd("sa", 1);
-		//ft_putendl_fd("ra", 1);
+		ft_putendl_fd("ra", 1);
+	}
 	else if ((*stack)->num > (*stack)->next->num &&
 		(*stack)->next->num > (*stack)->next->next->num &&
 		(*stack)->num > (*stack)->next->next->num)
+	{
 		ft_putendl_fd("sa", 1);
-		//ft_putendl_fd("rra", 1);
+		ft_putendl_fd("rra", 1);
+	}
 }
 /*
  *(*stack)->num             = 1ere position

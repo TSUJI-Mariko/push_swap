@@ -6,7 +6,7 @@
 #    By: mtsuji <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 16:21:07 by mtsuji            #+#    #+#              #
-#    Updated: 2022/01/17 19:51:38 by mtsuji           ###   ########.fr        #
+#    Updated: 2022/01/20 15:42:55 by mtsuji           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,14 @@ RM	=	rm -f
 CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address -g3
 
 .c.o:
-	$(CC) $(CFLAGS) -I $(HEADER) -I $(LIBFT) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -I$(HEADER) -I$(LIBFT) -c $< -o $(<:.c=.o)
 
 $(NAME):	$(OBJS) $(LIBFT)
 			@make -C $(LIBFT)
 			ar rcs $(LIBFT_A) $(OBJS)
+			ranlib $(LIBFT_A)
 			$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) -o $(NAME)
-			
+
 all:	$(NAME)
 
 clean:

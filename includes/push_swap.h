@@ -32,8 +32,9 @@ typedef struct s_stacks
 	struct s_stacks	*next;
 }	t_stacks;
 
+
 //number_separate
-int    number_separate(int argc, char **argv, t_stack *stack);
+int    number_separate(int argc, char **argv, t_stack **stack);
 //short_sort
 void	sort_three(t_stack **stack);
 void	short_sort(t_stack **stack, int len);
@@ -42,7 +43,7 @@ void	ft_swap(int *a, int *b);
 //stack_create
 t_stack *creation(void);
 void stack_delete(t_stack **stack);
-t_stack *put_num_from_arg(int argc, char **argv, t_stack *stack);
+//t_stack *put_num_from_arg(int argc, char **argv, t_stack *stack);
 
 //action
 void	ft_ra(t_stack **a, int i);

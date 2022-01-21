@@ -6,21 +6,22 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 18:44:40 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/01/10 18:59:30 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/01/20 16:28:38 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	/*
-	t_stacks	*stacks;
-	//他にもstruct追加する
-	
-	if (argc < 2)
+	t_stack	**s;
+	if (argc < 3)
 		return (1);
-		*/
-	printf("bonjour/n");
+	s = (t_stack **)malloc(sizeof(t_stack));
+	if (argc == 4)
+	{
+		number_separate(argc, argv, s);
+	}
+	free(s);
 	return (0);
 }
