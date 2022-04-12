@@ -12,31 +12,31 @@
 
 #include "../includes/push_swap.h"
 
-void	sort_three(t_stack **stack)
+void	sort_three(t_stacks *stacks)
 {
-	if ((*stack)->num < (*stack)->next->num &&
-		(*stack)->next->num < (*stack)->next->next->num)
+	if (stacks->a->data < stacks->next->a->data &&
+		stacks->next->a->data < stacks->next->next->a->data)
 			return ;
-	else if ((*stack)->num > (*stack)->next->num &&
-		(*stack)->next->num < (*stack)->next->next->num)
+	else if (stacks->a->data > stacks->next->a->data &&
+		stacks->next->a->data < stacks->next->next->a->data)
 		ft_putendl_fd("sa", 1);
-	else if ((*stack)->num > (*stack)->next->num &&
-		(*stack)->next->num < (*stack)->next->next->num)
+	else if (stacks->a->data > stacks->next->a->data &&
+		stacks->next->a->data < stacks->next->next->a->data)
 		ft_putendl_fd("ra", 1);
-	else if ((*stack)->num < (*stack)->next->num &&
-		(*stack)->next->num > (*stack)->next->next->num &&
-		(*stack)->num > (*stack)->next->next->num)
+	else if (stacks->a->data < stacks->next->a->data &&
+		stacks->next->a->data > stacks->next->next->a->data &&
+		stacks->a->data > stacks->next->next->a->data)
 		ft_putendl_fd("rra", 1);
-	else if ((*stack)->num < (*stack)->next->num &&
-		(*stack)->next->num > (*stack)->next->next->num &&
-		(*stack)->num < (*stack)->next->next->num)
+	else if (stacks->a->data < stacks->next->a->data &&
+		stacks->next->a->data > stacks->next->next->a->data &&
+		stacks->a->data < stacks->next->next->a->data)
 	{
 		ft_putendl_fd("sa", 1);
 		ft_putendl_fd("ra", 1);
 	}
-	else if ((*stack)->num > (*stack)->next->num &&
-		(*stack)->next->num > (*stack)->next->next->num &&
-		(*stack)->num > (*stack)->next->next->num)
+	else if (stacks->a->data > stacks->next->a->data &&
+		stacks->next->a->data > stacks->next->next->a->data &&
+		stacks->a->data > stacks->next->next->a->data)
 	{
 		ft_putendl_fd("sa", 1);
 		ft_putendl_fd("rra", 1);
@@ -48,15 +48,15 @@ void	sort_three(t_stack **stack)
  *(*stack)->next->next->num = 3eme position
  */
 
-void	short_sort(t_stack **stack, int len)
+void	short_sort(t_stacks *stacks, int len)
 {
 	if (len == 1)
 		return ;
-	if (len == 2 && (*stack)->num > (*stack)->next->num)
+	if (len == 2 && stacks->a->data > stacks->next->a->data)
 	{
 		//ft_sa((*stack)->num, 1);
 	}
 	if (len == 3)
-		sort_three(stack);
+		sort_three(stacks);
 }
 

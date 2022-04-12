@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+/*
 int	count_space(const char *str)
 {
 	int	words;
@@ -28,6 +29,29 @@ int	count_space(const char *str)
 			i++;
 		}
 		i++;
+	}
+	return (words);
+}
+*/
+
+int	count_words(const char *str)
+{
+	int	words;
+	int	state;
+
+	words = 0;
+	state = 1;
+	while (str && *str != '\0')
+	{
+		if (*str == ' ' || *str == '\t')
+			state = 1;
+		else 
+		{
+			if (state == 1)
+				words++;
+			state = 0;
+		}
+		str++;
 	}
 	return (words);
 }

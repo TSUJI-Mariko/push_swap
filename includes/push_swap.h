@@ -21,23 +21,42 @@
 typedef	struct	s_stack
 {
 	int	num;
+	//int size;
+	int	data;
+	int	step;
+	int	rotate;
 	struct s_stack	*next;
-}	t_stack;
+}		t_stack;
+
+typedef	struct s_data
+{
+	int num;
+	int a[10000];
+}	t_data;
+
 
 typedef struct s_stacks
 {
-	t_stack a;
-	t_stack b;
-	t_stack temp;
+	int	count_a;
+	int	count_b;
+	int	min;
+	int	max;
+	int med;
+	t_stack *a;
+	t_stack *b;
 	struct s_stacks	*next;
 }	t_stacks;
 
-
+//init_stack
+void	stack_put_null(t_stacks *stack, t_data *new);
+void stack_init(t_data *new, t_stacks *stacks);
+t_stack *stack_create(const int *buff, int count);
 //number_separate
-int    number_separate(int argc, char **argv, t_stack **stack);
+void    number_separate(int argc, char **argv, t_data *new);
+void    stacking(t_data *new, int *buff, int words);
 //short_sort
-void	sort_three(t_stack **stack);
-void	short_sort(t_stack **stack, int len);
+void	sort_three(t_stacks *stacks);
+void	short_sort(t_stacks *stacks, int len);
 //outil
 void	ft_swap(int *a, int *b);
 //stack_create
