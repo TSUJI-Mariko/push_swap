@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_stacks *s;
 	t_data	*new_data;
-	if (argc < 3)
+	if (argc < 2)
 		return (1);
 	s = (t_stacks *)malloc(sizeof(t_stacks));
 	if (s == NULL)
@@ -25,12 +25,14 @@ int	main(int argc, char **argv)
 	if (new_data == NULL)
 		exit(1);
 	stack_put_null(s, new_data);
-	if (argc == 4)
+	if (error_check(argc, argv)) //数列としてokかどうかをチェックする。
 	{
 		number_separate(argc, argv, new_data);
 		stack_init(new_data, s);
-		sort_three(s);
+		duplicate_check(new_data, s);
+		short_sort(s);
 	}
 	free(s);
+	free(new_data);
 	return (0);
 }

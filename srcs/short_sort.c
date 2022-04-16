@@ -14,29 +14,30 @@
 
 void	sort_three(t_stacks *stacks)
 {
-	if (stacks->a->data < stacks->next->a->data &&
-		stacks->next->a->data < stacks->next->next->a->data)
+	if (stacks->a->data < stacks->a->next->data &&
+		stacks->a->next->data < stacks->a->next->next->data)
 			return ;
-	else if (stacks->a->data > stacks->next->a->data &&
-		stacks->next->a->data < stacks->next->next->a->data)
-		ft_putendl_fd("sa", 1);
-	else if (stacks->a->data > stacks->next->a->data &&
-		stacks->next->a->data < stacks->next->next->a->data)
+	else if (stacks->a->data > stacks->a->next->data &&
+		stacks->a->next->data < stacks->a->next->next->data)
 		ft_putendl_fd("ra", 1);
-	else if (stacks->a->data < stacks->next->a->data &&
-		stacks->next->a->data > stacks->next->next->a->data &&
-		stacks->a->data > stacks->next->next->a->data)
+	else if (stacks->a->data > stacks->a->next->data &&
+		stacks->a->next->data < stacks->a->next->next->data &&
+		stacks->a->data < stacks->a->next->next->data)
+		ft_putendl_fd("sa", 1);
+	else if (stacks->a->data < stacks->a->next->data &&
+		stacks->a->next->data > stacks->a->next->next->data &&
+		stacks->a->data > stacks->a->next->next->data)
 		ft_putendl_fd("rra", 1);
-	else if (stacks->a->data < stacks->next->a->data &&
-		stacks->next->a->data > stacks->next->next->a->data &&
-		stacks->a->data < stacks->next->next->a->data)
+	else if (stacks->a->data < stacks->a->next->data &&
+		stacks->a->next->data > stacks->a->next->next->data &&
+		stacks->a->data < stacks->a->next->next->data)
 	{
 		ft_putendl_fd("sa", 1);
 		ft_putendl_fd("ra", 1);
 	}
-	else if (stacks->a->data > stacks->next->a->data &&
-		stacks->next->a->data > stacks->next->next->a->data &&
-		stacks->a->data > stacks->next->next->a->data)
+	else if (stacks->a->data > stacks->a->next->data &&
+		stacks->a->next->data > stacks->a->next->next->data &&
+		stacks->a->data > stacks->a->next->next->data)
 	{
 		ft_putendl_fd("sa", 1);
 		ft_putendl_fd("rra", 1);
@@ -48,15 +49,16 @@ void	sort_three(t_stacks *stacks)
  *(*stack)->next->next->num = 3eme position
  */
 
-void	short_sort(t_stacks *stacks, int len)
+void	short_sort(t_stacks *stacks)
 {
-	if (len == 1)
+	if (stacks->count_a == 1)
 		return ;
-	if (len == 2 && stacks->a->data > stacks->next->a->data)
+	if (stacks->count_a == 2 && 
+		stacks->a->data > stacks->a->next->data)
 	{
-		//ft_sa((*stack)->num, 1);
+		ft_putendl_fd("sa", 1);
 	}
-	if (len == 3)
+	if (stacks->count_a == 3)
 		sort_three(stacks);
 }
 

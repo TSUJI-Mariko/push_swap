@@ -16,6 +16,8 @@ void    stack_put_null(t_stacks *stacks, t_data *new)
 {
     stacks->count_a = 0;
     stacks->count_b = 0;
+    stacks->a = NULL;
+    stacks->b = NULL;
 
     new->num = 0;
 }

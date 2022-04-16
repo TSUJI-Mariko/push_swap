@@ -56,13 +56,24 @@ void    number_separate(int argc, char **argv, t_data *new);
 void    stacking(t_data *new, int *buff, int words);
 //short_sort
 void	sort_three(t_stacks *stacks);
-void	short_sort(t_stacks *stacks, int len);
+void	short_sort(t_stacks *stacks);
 //outil
 void	ft_swap(int *a, int *b);
+void	availavility(const char *str);
+int	check_spaces(const char *str);
 //stack_create
 t_stack *creation(void);
-void stack_delete(t_stack **stack);
+void	stack_delete(t_stack **stack);
+//duplicate_check
+void    search_dup(const int *dup, int count);
+int    *intcpy(int *dest, int *buff, int count);
+void	duplicate_check(t_data *new, t_stacks *stacks);
 //t_stack *put_num_from_arg(int argc, char **argv, t_stack *stack);
+
+//error_check
+int	error_check(int argc, char **argv);
+void put_error(void);
+void    string_check(const char *str);
 
 //action
 void	ft_ra(t_stack **a, int i);
