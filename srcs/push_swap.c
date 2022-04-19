@@ -12,6 +12,17 @@
 
 #include "../includes/push_swap.h"
 
+
+void	sort(t_stacks *stacks)
+{
+	if (stacks->count_a <= 3)
+		short_sort(stacks);
+	else if (stacks->count_a <= 6)
+		sort_6_elements(stacks);
+//	else 
+//		global_sort(stacks);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stacks *s;
@@ -30,7 +41,8 @@ int	main(int argc, char **argv)
 		number_separate(argc, argv, new_data);
 		stack_init(new_data, s);
 		duplicate_check(new_data, s);
-		short_sort(s);
+		sort(s);
+		stacks_free(s);
 	}
 	free(s);
 	free(new_data);

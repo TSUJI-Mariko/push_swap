@@ -47,16 +47,30 @@ typedef struct s_stacks
 	struct s_stacks	*next;
 }	t_stacks;
 
+typedef	struct s_markup
+{
+	int	count_a;
+	int	count_b;
+	int	data_a;
+	int	data_b;
+	int	min;
+	int	med;
+	int	max;
+}	t_markup;
+
 //init_stack
 void	stack_put_null(t_stacks *stack, t_data *new);
 void stack_init(t_data *new, t_stacks *stacks);
 t_stack *stack_create(const int *buff, int count);
+void	stacks_free(t_stacks *stacks);
 //number_separate
 void    number_separate(int argc, char **argv, t_data *new);
 void    stacking(t_data *new, int *buff, int words);
 //short_sort
 void	sort_three(t_stacks *stacks);
 void	short_sort(t_stacks *stacks);
+void	sort_6_elements(t_stacks *stacks);
+
 //outil
 void	ft_swap(int *a, int *b);
 void	availavility(const char *str);
@@ -76,19 +90,25 @@ void put_error(void);
 void    string_check(const char *str);
 
 //action
-void	ft_ra(t_stack **a, int i);
-void	ft_rb(t_stack **b, int i);
-void	ft_rr(t_stacks **stack, int i);
+void	ra(t_stack **a, int i);
+void	rb(t_stack **b, int i);
+void	rr(t_stacks **stack, int i);
 void	rra(t_stack **a, int i);
 void	rrb(t_stack **b, int i);
-void	ft_rrr(t_stacks **stack, int i);
-void	ft_sa(t_stack **a, int i);
-void	ft_sb(t_stack **b, int i);
-void	ft_ss(t_stacks **stack, int i);
-void	pa(t_stack **a, t_stack **b);
-//pbがまだ未完成
+void	rrr(t_stacks **stack, int i);
+void	sa(t_stack *a, int i);
+void	sb(t_stack *b, int i);
+void	ss(t_stacks *stack, int i);
+void	pa(t_stacks *stacks, int i);
+void	pb(t_stacks *stacks, int i);
 
-//error_check
+//main
+void	sort(t_stacks *stacks);
+
+//global_sort
+void	global_sort(t_stacks *stacks);
+void    first_big_sort(t_stacks *stacks);
+void    mark_up_stack(t_stacks *stacks);
 
 //quick_sort
 int partition(int *stack, int start, int end);

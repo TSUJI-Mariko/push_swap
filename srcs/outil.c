@@ -26,7 +26,7 @@ int	check_spaces(const char *str)
 	int i;
 
 	i = 0;
-	while (!str[i])
+	while (str[i])
 	{
 		if (str[i] == '\n' || str[i] == '\v' ||str[i] == '\t' ||
 		str[i] == '\r' ||str[i] == '\f' ||str[i] == ' ')
@@ -46,9 +46,9 @@ void	availavility(const char *str)
 	int i;
 
 	i = 0;
-	while (!str[i])
+	while (str[i])
 	{
-		if (str[i] > '0' && str[i] < '9')
+		if (str[i] >= '0' && str[i] <= '9')
 			return ;
 		i++;
 	}

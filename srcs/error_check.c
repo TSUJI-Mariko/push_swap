@@ -21,7 +21,22 @@
 */
 int    error_check(int argc, char **argv)
 {
-    //日曜日に追加する
+    int i;
+    int valid;
+
+    i = 1;
+    valid = 0;
+    while (i < argc)
+    {
+        if (check_spaces(argv[i])) //return値が１だった場合：真
+        {
+            availavility(argv[i]);
+            string_check(argv[i]);
+            valid = 1;
+        }
+        i++;
+    }
+    return (valid);
 }
 
 void put_error(void)

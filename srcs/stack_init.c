@@ -55,3 +55,26 @@ t_stack *stack_create(const int *buff, int count)
     }
     return (first_data);
 }
+
+void	stacks_free(t_stacks *stacks)
+{
+    int i;
+    t_stack *buff;
+
+    i = 0;
+    while (i < stacks->count_a)
+    {
+        buff = stacks->a;
+        stacks->a = stacks->a->next;
+        free(buff);
+        i++;
+    }
+    i = 0;
+    while (i < stacks->count_b)
+    {
+        buff = stacks->b;
+        stacks->b = stacks->b->next;
+        free(buff);
+        i++;
+    }
+}
