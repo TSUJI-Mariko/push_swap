@@ -56,6 +56,7 @@ typedef	struct s_markup
 	int	min;
 	int	med;
 	int	max;
+	int	quartre;
 }	t_markup;
 
 //init_stack
@@ -106,9 +107,9 @@ void	pb(t_stacks *stacks, int i);
 void	sort(t_stacks *stacks);
 
 //global_sort
-void	global_sort(t_stacks *stacks);
+void	big_sort(t_stacks *stacks);
 void    first_big_sort(t_stacks *stacks);
-void    mark_up_stack(t_stacks *stacks);
+void    mark_up_stack_a(t_stacks *stacks);
 
 //quick_sort
 int partition(int *stack, int start, int end);

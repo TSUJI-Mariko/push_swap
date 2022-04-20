@@ -12,37 +12,31 @@
 
 #include "../includes/push_swap.h"
 
-void    global_sort(t_stacks *stacks)
+void    big_sort(t_stacks *stacks)
 {
     first_big_sort(stacks);
+
 }
 
 void    first_big_sort(t_stacks *stacks)
 {
   while (stacks->count_a > (stacks->count_a / 2))
     {
-        if (stacks->a->data > stacks->med)
-        {
+        if (stacks->a->data < stacks->med)
             pb(stacks, 1);
-            stacks->count_a += 1;
-            stacks->count_b -= 1;
-        }
         else 
             ra(&stacks->a, 1);
     }
 }
-
-void    mark_up_stack(t_stacks *stacks)
+/*
+void    mark_up_stack_a(t_stacks *stacks)
 {
     t_markup    *buff;
     int i;
 
-    buff->data_b = stacks->b->data;
-    buff->count_b = stacks->count_b;
-    buff->min = stacks->b->data;
-    buff->max = buff->data_b - 1;
+    buff->count_a = stacks->count_a;
+    buff->max = buff->count_a;
     buff->med = buff->max / 2;
+    buff->quartre = buff->med / 2;
+}*/
 
-
-
-}

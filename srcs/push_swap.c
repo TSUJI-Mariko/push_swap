@@ -20,7 +20,7 @@ void	sort(t_stacks *stacks)
 	else if (stacks->count_a <= 6)
 		sort_6_elements(stacks);
 //	else 
-//		global_sort(stacks);
+//		big_sort(stacks);
 }
 
 int	main(int argc, char **argv)
