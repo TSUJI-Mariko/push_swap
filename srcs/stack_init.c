@@ -13,12 +13,11 @@
 #include "../includes/push_swap.h"
 
 void    stack_put_null(t_stacks *stacks, t_data *new)
-{
+{   
     stacks->count_a = 0;
     stacks->count_b = 0;
     stacks->a = NULL;
     stacks->b = NULL;
-
     new->num = 0;
 }
 void stack_init(t_data *new, t_stacks *stacks)
@@ -56,7 +55,7 @@ t_stack *stack_create(const int *buff, int count)
     return (first_data);
 }
 
-void	stacks_free(t_stacks *stacks)
+void	stacks_free(t_stacks *stacks, t_data *new)
 {
     int i;
     t_stack *buff;
@@ -77,4 +76,6 @@ void	stacks_free(t_stacks *stacks)
         free(buff);
         i++;
     }
+    free(new);
+    free(stacks);
 }

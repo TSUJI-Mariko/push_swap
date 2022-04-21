@@ -12,23 +12,23 @@
 
 #include "../includes/push_swap.h"
 
-
 void	sort(t_stacks *stacks)
 {
 	if (stacks->count_a <= 3)
 		short_sort(stacks);
-	else if (stacks->count_a <= 6)
-		sort_6_elements(stacks);
-//	else 
-//		big_sort(stacks);
+	else if (stacks->count_a <= 5)
+		sort_5_elements(stacks);
+	else
+		radix_sort(stacks);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stacks *s;
-	t_data	*new_data;
+	t_stacks	*s;
+	t_data		*new_data;
+
 	if (argc < 2)
-		return (1);
+		return (0);
 	s = (t_stacks *)malloc(sizeof(t_stacks));
 	if (s == NULL)
 		exit(1);
@@ -36,15 +36,16 @@ int	main(int argc, char **argv)
 	if (new_data == NULL)
 		exit(1);
 	stack_put_null(s, new_data);
-	if (error_check(argc, argv)) //数列としてokかどうかをチェックする。
+	if (error_check(argc, argv))
 	{
 		number_separate(argc, argv, new_data);
-		stack_init(new_data, s);
 		duplicate_check(new_data, s);
-		sort(s);
-		stacks_free(s);
+		if (sorted(new_data))
+		{
+			stack_init(new_data, s);
+			sort(s);
+		}
 	}
-	free(s);
-	free(new_data);
+	stacks_free(s, new_data);
 	return (0);
 }

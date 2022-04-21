@@ -24,6 +24,7 @@ SRCS	=	./srcs/push_swap.c	\
 			./srcs/stack_init.c\
 			./srcs/duplicate_check.c\
 			./srcs/global_sort.c\
+			./srcs/radix_sort.c\
 
 OBJS	=	$(SRCS:.c=.o)
 

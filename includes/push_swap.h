@@ -49,13 +49,12 @@ typedef struct s_stacks
 
 typedef	struct s_markup
 {
-	int	count_a;
-	int	count_b;
-	int	data_a;
-	int	data_b;
-	int	min;
-	int	med;
-	int	max;
+	int	min_a;
+	int	med_a;
+	int	max_a;
+	int	min_b;
+	int	med_b;
+	int	max_b;
 	int	quartre;
 }	t_markup;
 
@@ -63,19 +62,21 @@ typedef	struct s_markup
 void	stack_put_null(t_stacks *stack, t_data *new);
 void stack_init(t_data *new, t_stacks *stacks);
 t_stack *stack_create(const int *buff, int count);
-void	stacks_free(t_stacks *stacks);
+//void	stacks_free(t_stacks *stacks);
+void	stacks_free(t_stacks *stacks, t_data *new);
 //number_separate
 void    number_separate(int argc, char **argv, t_data *new);
 void    stacking(t_data *new, int *buff, int words);
 //short_sort
 void	sort_three(t_stacks *stacks);
 void	short_sort(t_stacks *stacks);
-void	sort_6_elements(t_stacks *stacks);
+void	sort_5_elements(t_stacks *stacks);
 
 //outil
 void	ft_swap(int *a, int *b);
 void	availavility(const char *str);
 int	check_spaces(const char *str);
+int	sorted(t_data *stacks);
 //stack_create
 t_stack *creation(void);
 void	stack_delete(t_stack **stack);
@@ -108,12 +109,17 @@ void	sort(t_stacks *stacks);
 
 //global_sort
 void	big_sort(t_stacks *stacks);
+void	sort_a(t_stacks *stacks);
+void	sort_b(t_stacks *stacks);
 void    first_big_sort(t_stacks *stacks);
 void    mark_up_stack_a(t_stacks *stacks);
 
 //quick_sort
 int partition(int *stack, int start, int end);
 void	quicksort(int *stack, int start, int end);
-//print_helper ... libftが統合できれば不要
+void    find_mid_value_b(t_stacks *stacks);
+void	find_mid_value_a(t_stacks *stacks);
+//radix_sort
+void    radix_sort(t_stacks *stacks);
 
 #endif

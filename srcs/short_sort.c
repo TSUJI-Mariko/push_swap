@@ -63,12 +63,12 @@ void	short_sort(t_stacks *stacks)
 		sort_three(stacks);
 }
 
-void	sort_6_elements(t_stacks *stacks)
+void	sort_5_elements(t_stacks *stacks)
 {
 	int i;
 
 	i = stacks->min;
-	while (stacks->count_a > 2)
+	while (stacks->count_a > 3)
 	{
 		if (stacks->a->data == i)
 		{
@@ -76,11 +76,14 @@ void	sort_6_elements(t_stacks *stacks)
 			i++;
 		}
 		else
-			ra(&stacks->a, 1);
+		ra(&stacks->a, 1);
 	}
 	short_sort(stacks);
-	while (stacks->count_b == 0)
+	while (stacks->count_b != 0)
 	{
+		if (stacks->count_b == 2 &&
+			stacks->b->data < stacks->b->next->data)
+			sb(stacks->b, 1);
 		pa(stacks, 1);
 	}
 }

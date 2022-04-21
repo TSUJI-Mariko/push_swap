@@ -60,3 +60,17 @@ availavility
 文字列内を書く位置文字ずつチェックして、数値がでてきた場合は
 ０を返す。該当文字がひとつもない場合はエラーを返す。
 */
+
+int	sorted(t_data *new)
+{
+	int i;
+	
+	i = 0;
+	while (i < (new->num - 1))
+	{
+		if (new->a[i] > new->a[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
+}

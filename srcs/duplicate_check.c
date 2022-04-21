@@ -20,7 +20,7 @@ void    search_dup(const int *dup, int count)
     while (i != count) 
     {
         if(dup[i] == dup[i + 1])
-            exit (1);
+            put_error();
         i ++;
     }
 }
@@ -49,6 +49,8 @@ int    *intcpy(int *dest, int *buff, int count)
     {
         dest[i] = buff[i];
         i++;
+        if (buff[i] >= MAX_INT || buff[i] <= MIN_INT)
+            put_error();
     }
     return (dest);
 }

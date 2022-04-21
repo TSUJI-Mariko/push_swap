@@ -32,9 +32,9 @@ int	ft_atoi(const char *str)
 	{
 		atoi = atoi * 10 + *str - 48;
 		str++;
-		if (atoi > 9223372036854775807 && negative == -1)
+		if (atoi > 9223372036854775806 && negative == -1)
 			return (0);
-		if (atoi > 9223372036854775806 && negative == 1)
+		if (atoi > 9223372036854775807 && negative == 1)
 			return (-1);
 	}
 	return ((int)atoi * negative);
