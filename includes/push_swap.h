@@ -63,7 +63,8 @@ void	stack_put_null(t_stacks *stack, t_data *new);
 void stack_init(t_data *new, t_stacks *stacks);
 t_stack *stack_create(const int *buff, int count);
 //void	stacks_free(t_stacks *stacks);
-void	stacks_free(t_stacks *stacks, t_data *new);
+//void	stacks_free(t_stacks *stacks, t_data *new);
+void	stacks_free(t_stacks *stacks);
 //number_separate
 void    number_separate(int argc, char **argv, t_data *new);
 void    stacking(t_data *new, int *buff, int words);

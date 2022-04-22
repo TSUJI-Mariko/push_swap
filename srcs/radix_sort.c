@@ -36,6 +36,7 @@ void    radix_sort(t_stacks *stacks)
     int i;
     int j;
     int num;
+    //int max_a;
 
     max_bits = 0; // how many bits for max_num 
     while ((stacks->max >> max_bits) != 0) 
@@ -44,10 +45,11 @@ void    radix_sort(t_stacks *stacks)
     while (++i < max_bits) // repeat for max_bits times
     {
         j = -1;
-        while(j++ < stacks->max)
+        //max_a = stacks->count_a;
+        while(j++ < stacks->count_a)
         {
             num = stacks->a->data; // top number of A
-            if (((num >> i) &1) == 1) 
+            if (((num >> i) & 1) == 1) 
                 ra(&stacks->a, 1); 
             // if the (i + 1)-th bit is 1, leave in stack a
             else 

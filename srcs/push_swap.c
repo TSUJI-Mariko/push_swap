@@ -44,8 +44,11 @@ int	main(int argc, char **argv)
 		{
 			stack_init(new_data, s);
 			sort(s);
+			stacks_free(s);
 		}
 	}
-	stacks_free(s, new_data);
+//	stacks_free(s, new_data);
+	free(s);
+	free(new_data);
 	return (0);
 }
