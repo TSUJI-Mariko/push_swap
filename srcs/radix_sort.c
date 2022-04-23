@@ -58,7 +58,7 @@ void    radix_sort(t_stacks *stacks)
         while(j < size)
         {
             // top number of A
-            num = stacks->a->data;
+            num = stacks->a->step;
             if (((num >> i) & 1) == 1) 
                 ra(&stacks->a, 1); 
             // if the (i + 1)-th bit is 1, leave in stack a

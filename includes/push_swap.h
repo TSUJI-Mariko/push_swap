@@ -33,6 +33,7 @@ typedef	struct s_data
 	int num;
 	int a[10000];
 	int	arr[10000];
+	int arr_radix[10000];
 }	t_data;
 
 
@@ -63,7 +64,7 @@ typedef	struct s_markup
 //init_stack
 void	stack_put_null(t_stacks *stack, t_data *new);
 void stack_init(t_data *new, t_stacks *stacks);
-void	steps_markup(t_stacks *stacks, t_data *new);
+void	steps_markup(t_data *new, t_stacks *stacks);
 t_stack *stack_create(const int *buff, const int *arr, int count);
 void	stacks_free(t_stacks *stacks);
 //void	stacks_free(t_stacks *stacks, t_data *new);

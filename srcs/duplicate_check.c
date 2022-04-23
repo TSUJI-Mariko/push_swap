@@ -28,7 +28,6 @@ void	search_dup(const int *dup, int count)
 void	duplicate_check(t_data *new, t_stacks *stacks)
 {
 	int	*duplicate;
-	int i;
 
 	duplicate = (int *)malloc(sizeof(int) * new->num);
 	duplicate = intcpy(duplicate, new->a, new->num);
@@ -39,12 +38,17 @@ void	duplicate_check(t_data *new, t_stacks *stacks)
 	stacks->min = duplicate[0];
 	stacks->med = duplicate[new->num / 2];
 	stacks->max = duplicate[new->num -1];
-	i = 0;
-	while (i < stacks->max)
+	/*
+	i = 1;
+	j = 0;
+	while (duplicate[j]!= '\0')
 	{
-		new->arr[i] = duplicate[i];
+		duplicate[j] = i;
+		new->arr[j] = duplicate[j];
 		i++;
+		j++;
 	}
+	*/
 	
 	//stacks->a->step = 0;
 	/*i = 1;

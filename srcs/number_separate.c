@@ -55,7 +55,11 @@ void   stacking(t_data *new, int *buff, int words)
     
     i = -1;
     while (words > ++i)
+    {
         new->a[new->num + i] = buff[i];
+        new->arr[new->num + i] = buff[i];
+        new->arr_radix[new->num + i] = buff[i];
+    }
     new->num += words;
     free(buff);
 }

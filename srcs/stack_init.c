@@ -25,10 +25,10 @@ void	stack_put_null(t_stacks *stacks, t_data *new)
 void	stack_init(t_data *new, t_stacks *stacks)
 {
 	//int i;
-	steps_markup(stacks, new);
+	steps_markup(new, stacks);
 	stacks->a = stack_create(new->a, new->arr, new->num);
 	stacks->b = NULL;
-	stacks->arr = stack_create(new->a, new->arr, new->num);
+	//stacks->arr = stack_create(new->a, new->arr, new->num);
 /*	i = 0;
 	while (i < stacks->count_a)
 	{
@@ -90,13 +90,6 @@ void	stacks_free(t_stacks *stacks)
 		i++;
 	}
 	i = 0;
-	while (i < stacks->count_a)
-	{
-		buff = stacks->arr;
-		stacks->arr = stacks->arr->next;
-		free(buff);
-		i++;
-	}
 }
 /*
 void	steps_markup(const int *stacks)
@@ -167,30 +160,14 @@ void	steps_markup(t_stacks *stacks, int count, t_data *new)
 
 }
 */
-void	steps_markup(t_stacks *stacks, t_data *new)
+
+void	steps_markup(t_data *new, t_stacks *stacks)
 {
 	int 	i;
 	int	j;
 	int 	index;
-	index = 1;
-	//t_stack *arr;
-	//int k;
 
-	//quicksort(new->a, 0, stacks->count_a);
-	/*i = 1;
-	while (i <= stacks->count_a)
-	{
-		new->arr[i] = new->a[i];
-		if (i == stacks->count_a)
-			stacks->next->arr = NULL;
-		else 
-			stacks->arr->data = stacks->arr->next->data;
-		i++;
-
-	}*/
-
-	//stacks->arr->data = new->a[stacks->count_a];
-	
+	quicksort(new->arr_radix, 0, stacks->count_a -1);
 	i = 0;
 	index = 1;
 	while (i < stacks->count_a)
@@ -198,12 +175,12 @@ void	steps_markup(t_stacks *stacks, t_data *new)
 		j = 0;
 		while (j < stacks->count_a)
 		{
-			if (new->a[i] > new->arr[j])
+			if (new->arr[i] > new->arr_radix[j])
 				index++;
 			j++;
 		}
 		//stacks->a->data = index;
-		new->a[i] = index;
+		new->arr[i] = index;
 		index = 1;
 		i++;
 	}

@@ -14,31 +14,31 @@
 
 void	sort_three(t_stacks *stacks)
 {
-	if (stacks->a->step < stacks->a->next->step &&
-		stacks->a->next->step < stacks->a->next->next->step)
+	if (stacks->a->data < stacks->a->next->data &&
+		stacks->a->next->data < stacks->a->next->next->data)
 			return ;
-	else if (stacks->a->step > stacks->a->next->step &&
-		stacks->a->next->step < stacks->a->next->next->step &&
-		stacks->a->step > stacks->a->next->next->step)
+	else if (stacks->a->data > stacks->a->next->data &&
+		stacks->a->next->data < stacks->a->next->next->data &&
+		stacks->a->data > stacks->a->next->next->data)
 		ra(&stacks->a, 1);
-	else if (stacks->a->step > stacks->a->next->step &&
-		stacks->a->next->step < stacks->a->next->next->step &&
-		stacks->a->step < stacks->a->next->next->step)
+	else if (stacks->a->data > stacks->a->next->data &&
+		stacks->a->next->data < stacks->a->next->next->data &&
+		stacks->a->data < stacks->a->next->next->data)
 		sa(stacks->a, 1);
-	else if (stacks->a->step < stacks->a->next->step &&
-		stacks->a->next->step > stacks->a->next->next->step &&
-		stacks->a->step > stacks->a->next->next->step)
+	else if (stacks->a->data < stacks->a->next->data &&
+		stacks->a->next->data > stacks->a->next->next->data &&
+		stacks->a->data > stacks->a->next->next->data)
 		rra(&stacks->a, 1);
-	else if (stacks->a->step < stacks->a->next->step &&
-		stacks->a->next->step > stacks->a->next->next->step &&
-		stacks->a->step < stacks->a->next->next->step)
+	else if (stacks->a->data < stacks->a->next->data &&
+		stacks->a->next->data > stacks->a->next->next->data &&
+		stacks->a->data < stacks->a->next->next->data)
 	{
 		sa(stacks->a, 1);
 		ra(&stacks->a, 1);
 	}
-	else if (stacks->a->step > stacks->a->next->step &&
-		stacks->a->next->step > stacks->a->next->next->step &&
-		stacks->a->step > stacks->a->next->next->step)
+	else if (stacks->a->data > stacks->a->next->data &&
+		stacks->a->next->data > stacks->a->next->next->data &&
+		stacks->a->data > stacks->a->next->next->data)
 	{
 		sa(stacks->a, 1);
 		rra(&stacks->a, 1);
@@ -55,7 +55,7 @@ void	short_sort(t_stacks *stacks)
 	if (stacks->count_a == 1)
 		return ;
 	if (stacks->count_a == 2 && 
-		stacks->a->step > stacks->a->next->step)
+		stacks->a->data > stacks->a->next->data)
 	{
 		sa(stacks->a, 1);
 	}
@@ -67,7 +67,7 @@ void	sort_5_elements(t_stacks *stacks)
 {
 	while (stacks->count_a > 3)
 	{
-		if (stacks->a->step < stacks->med)
+		if (stacks->a->data < stacks->med)
 		{
 			pb(stacks, 1);
 		}
@@ -78,7 +78,7 @@ void	sort_5_elements(t_stacks *stacks)
 	while (stacks->count_b != 0)
 	{
 		if (stacks->count_b == 2 &&
-			stacks->b->step < stacks->b->next->step)
+			stacks->b->data < stacks->b->next->data)
 			sb(stacks->b, 1);
 		pa(stacks, 1);
 	}
