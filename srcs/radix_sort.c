@@ -28,6 +28,17 @@ for (int i = 0 ; !is_sorted(a) ; ++i)
 }
 */
 
+int    nb_byte(t_stacks *stacks)
+{
+    int i;
+
+    i = 0;
+  
+    while ((stacks->count_a >> i) != 0)
+            i++;
+    return (i);
+}
+
 void    radix_sort(t_stacks *stacks)
 {
 //int size = a.size();
@@ -36,28 +47,29 @@ void    radix_sort(t_stacks *stacks)
     int i;
     int j;
     int num;
-    //int max_a;
+    int size;
 
-    max_bits = 0; // how many bits for max_num 
-    while ((stacks->max >> max_bits) != 0) 
-        ++max_bits;
-    i = -1; 
-    while (++i < max_bits) // repeat for max_bits times
+    max_bits = nb_byte(stacks);
+    size = stacks->count_a;
+    i = 0; 
+    while (i < max_bits) // repeat for max_bits times
     {
-        j = -1;
-        //max_a = stacks->count_a;
-        while(j++ < stacks->count_a)
+        j = 0;
+        while(j < size)
         {
-            num = stacks->a->data; // top number of A
+            // top number of A
+            num = stacks->a->data;
             if (((num >> i) & 1) == 1) 
                 ra(&stacks->a, 1); 
             // if the (i + 1)-th bit is 1, leave in stack a
             else 
                 pb(stacks, 1);// otherwise push to stack b
+            j++;
         }
         // put into boxes done
-        while (stacks->count_b != 0) 
+        while (stacks->count_b > 0) 
             pa(stacks, 1); // while stack b is not empty, do pa
+        i++;
         // connect numbers done
     }
 }

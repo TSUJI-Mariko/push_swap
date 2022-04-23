@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 			stacks_free(s);
 		}
 	}
-//	stacks_free(s, new_data);
 	free(s);
 	free(new_data);
 	return (0);

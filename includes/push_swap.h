@@ -32,6 +32,7 @@ typedef	struct s_data
 {
 	int num;
 	int a[10000];
+	int	arr[10000];
 }	t_data;
 
 
@@ -43,7 +44,8 @@ typedef struct s_stacks
 	int	max;
 	int med;
 	t_stack *a;
-	t_stack *b;
+	t_stack *arr;
+	t_stack	*b;
 	struct s_stacks	*next;
 }	t_stacks;
 
@@ -61,10 +63,10 @@ typedef	struct s_markup
 //init_stack
 void	stack_put_null(t_stacks *stack, t_data *new);
 void stack_init(t_data *new, t_stacks *stacks);
-t_stack *stack_create(const int *buff, int count);
-//void	stacks_free(t_stacks *stacks);
-//void	stacks_free(t_stacks *stacks, t_data *new);
+void	steps_markup(t_stacks *stacks, t_data *new);
+t_stack *stack_create(const int *buff, const int *arr, int count);
 void	stacks_free(t_stacks *stacks);
+//void	stacks_free(t_stacks *stacks, t_data *new);
 //number_separate
 void    number_separate(int argc, char **argv, t_data *new);
 void    stacking(t_data *new, int *buff, int words);
@@ -122,5 +124,5 @@ void    find_mid_value_b(t_stacks *stacks);
 void	find_mid_value_a(t_stacks *stacks);
 //radix_sort
 void    radix_sort(t_stacks *stacks);
-
+int    nb_byte(t_stacks *stacks);
 #endif

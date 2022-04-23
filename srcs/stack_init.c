@@ -17,17 +17,28 @@ void	stack_put_null(t_stacks *stacks, t_data *new)
 	stacks->count_a = 0;
 	stacks->count_b = 0;
 	stacks->a = NULL;
+	stacks->arr = NULL;
 	stacks->b = NULL;
 	new->num = 0;
 }
 
 void	stack_init(t_data *new, t_stacks *stacks)
 {
-	stacks->a = stack_create(new->a, new->num);
+	//int i;
+	steps_markup(stacks, new);
+	stacks->a = stack_create(new->a, new->arr, new->num);
 	stacks->b = NULL;
+	stacks->arr = stack_create(new->a, new->arr, new->num);
+/*	i = 0;
+	while (i < stacks->count_a)
+	{
+		stacks->a->step = new->arr[i];
+		stacks->a->step = stacks->a->next->step;
+		i++;
+	}*/
 }
 
-t_stack	*stack_create(const int *buff, int count)
+t_stack	*stack_create(const int *buff, const int *arr, int count)
 {
 	t_stack	*first_data;
 	t_stack	*new_list;
@@ -47,6 +58,7 @@ t_stack	*stack_create(const int *buff, int count)
 				exit(1);
 		}
 		new_list->data = buff[i];
+		new_list->step = arr[i];
 		if (i == (count -1))
 			new_list->next = NULL;
 		else
@@ -56,7 +68,6 @@ t_stack	*stack_create(const int *buff, int count)
 	return (first_data);
 }
 
-//void	stacks_free(t_stacks *stacks, t_data *new)
 void	stacks_free(t_stacks *stacks)
 {
 	int		i;
@@ -73,11 +84,127 @@ void	stacks_free(t_stacks *stacks)
 	i = 0;
 	while (i < stacks->count_b)
 	{
-		buff = stacks->b;
+		buff = stacks->arr;
 		stacks->b = stacks->b->next;
 		free(buff);
 		i++;
 	}
-	//free(new);
-	//free(stacks);
+	i = 0;
+	while (i < stacks->count_a)
+	{
+		buff = stacks->arr;
+		stacks->arr = stacks->arr->next;
+		free(buff);
+		i++;
+	}
+}
+/*
+void	steps_markup(const int *stacks)
+{
+	
+	int		i;
+	int		j;
+	int	*buff;
+
+	i = 1;
+	j = 0;
+	buff = (int *)malloc(sizeof(int) * stacks->count_a);
+	buff = intcpy(buff, &stacks->a->data, stacks->count_a);
+	quicksort(buff, buff[0], stacks->max);
+
+	while (buff[j] <= stacks->count_a)
+	{
+		stacks->a->step = i;
+		stacks->a->step = stacks->a->next->step;
+		j++;
+		i++;
+	}
+	
+	free(buff);
+	
+void	steps_markup(t_stacks *stacks, int count, t_data *new)
+{
+	//t_stacks	*new_list;
+	int		i;
+	//int *buff;
+
+	//i = 1;
+	//new_list = (t_stacks *)malloc(sizeof(t_stacks));
+	//if (new_list == NULL)
+	//	exit (1);
+	//first_step = new_list;
+	
+	quicksort(new->a, 0, count);
+	
+	i = 1;
+	while (i <= count)
+	{
+		stacks->a->step = i;
+		//new_list = new_list->next;
+		i++;
+		stacks->a->step = stacks->a->next->step; 
+	}
+	stacks->a->next = NULL;
+	
+	
+	int	*duplicate;
+	int j;
+
+	duplicate = (int *)malloc(sizeof(int) * new->num);
+	duplicate = intcpy(duplicate, new->a, count);
+	quicksort(duplicate, 0, new->num - 1);
+	i = 1;
+	j = 0;
+	while (duplicate[j])
+	{
+		stacks->a->step = i;
+		duplicate[j] = stacks->a->step;
+		stacks->a->next->step = stacks->a->step;
+		i++;
+		j++;
+	}
+	
+
+}
+*/
+void	steps_markup(t_stacks *stacks, t_data *new)
+{
+	int 	i;
+	int	j;
+	int 	index;
+	index = 1;
+	//t_stack *arr;
+	//int k;
+
+	//quicksort(new->a, 0, stacks->count_a);
+	/*i = 1;
+	while (i <= stacks->count_a)
+	{
+		new->arr[i] = new->a[i];
+		if (i == stacks->count_a)
+			stacks->next->arr = NULL;
+		else 
+			stacks->arr->data = stacks->arr->next->data;
+		i++;
+
+	}*/
+
+	//stacks->arr->data = new->a[stacks->count_a];
+	
+	i = 0;
+	index = 1;
+	while (i < stacks->count_a)
+	{
+		j = 0;
+		while (j < stacks->count_a)
+		{
+			if (new->a[i] > new->arr[j])
+				index++;
+			j++;
+		}
+		//stacks->a->data = index;
+		new->a[i] = index;
+		index = 1;
+		i++;
+	}
 }
