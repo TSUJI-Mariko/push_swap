@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 18:44:40 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/04/05 17:38:21 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/04/23 17:00:23 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	sort(t_stacks *stacks)
 		sort_5_elements(stacks);
 	else
 		radix_sort(stacks);
+	stacks_free(stacks);
 }
 
 int	main(int argc, char **argv)
@@ -44,7 +45,6 @@ int	main(int argc, char **argv)
 		{
 			stack_init(new_data, s);
 			sort(s);
-			stacks_free(s);
 		}
 	}
 	free(s);

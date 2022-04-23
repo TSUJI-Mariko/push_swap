@@ -14,16 +14,16 @@ NAME	=	push_swap
 
 SRCS	=	./srcs/push_swap.c	\
 			./srcs/action.c	\
+			./srcs/action_2.c	\
+			./srcs/action_3.c	\
 			./srcs/error_check.c	\
+			./srcs/error_check_2.c	\
 			./srcs/number_separate.c	\
-			./srcs/outil.c	\
-			./srcs/print_helper.c	\
 			./srcs/quick_sort.c	\
 			./srcs/short_sort.c	\
 			./srcs/stack_create.c\
 			./srcs/stack_init.c\
 			./srcs/duplicate_check.c\
-			./srcs/global_sort.c\
 			./srcs/radix_sort.c\
 
 OBJS	=	$(SRCS:.c=.o)

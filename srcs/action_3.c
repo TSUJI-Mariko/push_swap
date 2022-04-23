@@ -1,61 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action.c                                           :+:      :+:    :+:   */
+/*   action_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 16:59:10 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/04/23 16:48:32 by mtsuji           ###   ########.fr       */
+/*   Created: 2022/04/23 16:33:52 by mtsuji            #+#    #+#             */
+/*   Updated: 2022/04/23 17:20:34 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_stack **a, int i)
+void	rra(t_stack **a, int i)
 {
-	t_stack	*list;
-	t_stack	*first;
 	t_stack	*last;
+	t_stack	*prev;
+	t_stack	*list;
 
 	if (*a == NULL)
 		return ;
+	prev = *a;
+	last = (*a)->next;
 	list = *a;
-	first = (*a)->next;
-	last = *a;
 	while (last->next != NULL)
+	{
+		prev = last;
 		last = last->next;
-	list->next = NULL;
-	last->next = list;
-	*a = first;
+	}
+	last->next = NULL;
+	last = prev->next;
+	*a = list;
 	if (i == 1)
-		ft_putendl_fd("ra", 1);
+		ft_putendl_fd("rra", 1);
 }
 
-void	rb(t_stack **b, int i)
+void	rrb(t_stack **b, int i)
 {
-	t_stack	*first;
 	t_stack	*last;
-	t_stack	*list;
+	t_stack	*prev;
 
 	if (*b == NULL)
 		return ;
-	list = *b;
-	first = (*b)->next;
 	last = *b;
 	while (last->next != NULL)
+	{
+		prev = last;
 		last = last->next;
-	list->next = NULL;
-	last->next = list;
-	*b = first;
+	}
+	last->next = *b;
+	prev->next = NULL;
 	if (i == 1)
-		ft_putendl_fd("rb", 1);
+		ft_putendl_fd("rrb", 1);
 }
 
-void	rr(t_stacks *stack, int i)
+void	move_1(t_stacks *stacks)
 {
-	ra(&stack->a, 0);
-	rb(&stack->b, 0);
-	if (i == 1)
-		ft_putendl_fd("rr", 1);
+	sa(stacks->a, 1);
+	ra(&stacks->a, 1);
+}
+
+void	move_2(t_stacks *stacks)
+{
+	sa(stacks->a, 1);
+	rra(&stacks->a, 1);
 }

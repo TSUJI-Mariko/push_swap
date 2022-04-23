@@ -38,27 +38,6 @@ void	duplicate_check(t_data *new, t_stacks *stacks)
 	stacks->min = duplicate[0];
 	stacks->med = duplicate[new->num / 2];
 	stacks->max = duplicate[new->num -1];
-	/*
-	i = 1;
-	j = 0;
-	while (duplicate[j]!= '\0')
-	{
-		duplicate[j] = i;
-		new->arr[j] = duplicate[j];
-		i++;
-		j++;
-	}
-	*/
-	
-	//stacks->a->step = 0;
-	/*i = 1;
-	while (new->num-- > 0)
-	{
-		stacks->a->step = i;
-		stacks->a->next->step = stacks->a->step;
-		i++;
-	}*/
-
 	free(duplicate);
 }
 

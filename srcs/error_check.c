@@ -12,13 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-/*エラーケースの対処。
-**同じ数字が複数出てくる場合、
-**数字以外の文字列があった場合
-**-が２連続で現れた場合（１文字までは許容）= atoiでカバーできているはず。
-**
-**
-*/
 int	error_check(int argc, char **argv)
 {
 	int	i;
@@ -73,7 +66,3 @@ void	string_check(const char *str)
 		i++;
 	}
 }
-/*
-string_check... 符号のついた数字以外の文字列を
-エラー処理で取り除く
-*/

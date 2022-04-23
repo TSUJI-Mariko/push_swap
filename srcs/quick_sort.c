@@ -1,10 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/23 17:01:26 by mtsuji            #+#    #+#             */
+/*   Updated: 2022/04/23 17:01:59 by mtsuji           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-//#define MAX 100000
-
-//int stack[MAX];
-
-int partition(int *stack, int start, int end)
+int	partition(int *stack, int start, int end)
 {
 	int	end_value;
 	int	start_index;
@@ -33,7 +41,8 @@ int partition(int *stack, int start, int end)
 
 void	quicksort(int *stack, int start, int end)
 {
-	int index;
+	int	index;
+
 	if (start < end)
 	{
 		index = partition(stack, start, end);

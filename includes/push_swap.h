@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:56:30 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/01/10 17:02:09 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/04/23 17:21:37 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void    string_check(const char *str);
 //action
 void	ra(t_stack **a, int i);
 void	rb(t_stack **b, int i);
-void	rr(t_stacks **stack, int i);
+void	rr(t_stacks *stack, int i);
 void	rra(t_stack **a, int i);
 void	rrb(t_stack **b, int i);
 void	rrr(t_stacks **stack, int i);
@@ -107,7 +107,8 @@ void	sb(t_stack *b, int i);
 void	ss(t_stacks *stack, int i);
 void	pa(t_stacks *stacks, int i);
 void	pb(t_stacks *stacks, int i);
-
+void	move_1(t_stacks *stacks);
+void	move_2(t_stacks *stacls);
 //main
 void	sort(t_stacks *stacks);
 
