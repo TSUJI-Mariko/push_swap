@@ -6,7 +6,7 @@
 #    By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/26 12:12:29 by mtsuji            #+#    #+#              #
-#    Updated: 2021/06/09 17:42:30 by mtsuji           ###   ########.fr        #
+#    Updated: 2022/04/24 10:20:38 by mtsuji           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,19 +45,7 @@ SRCS	=	ft_memset.c		\
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
 
-BONUS	=	ft_lstnew.c			\
-			ft_lstadd_front.c	\
-			ft_lstsize.c		\
-			ft_lstlast.c		\
-			ft_lstadd_back.c	\
-			ft_lstdelone.c		\
-			ft_lstclear.c		\
-			ft_lstiter.c		\
-			ft_lstmap.c			\
-
 OBJS	=	${SRCS:.c=.o}
-
-BONUS_OBJS	=	${BONUS:.c=.o}
 
 CC		=	gcc
 
@@ -77,12 +65,9 @@ ${NAME}:	${OBJS}
 all:	${NAME}
 
 clean:
-		${RM} ${OBJS} ${BONUS_OBJS}
+		${RM} ${OBJS}
 fclean:		clean
 		${RM} ${NAME}
 re:	fclean all
-
-bonus:	${BONUS_OBJS}
-		ar rcs ${NAME} ${BONUS_OBJS}
 
 .PHONY:	all clean fclean re

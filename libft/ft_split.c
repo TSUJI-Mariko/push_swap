@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 10:46:49 by mtsuji            #+#    #+#             */
-/*   Updated: 2021/06/11 18:48:30 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/04/24 10:16:04 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	count_words(const char *str)
 	{
 		if (*str == ' ' || *str == '\t')
 			state = 1;
-		else 
+		else
 		{
 			if (state == 1)
 				words++;
@@ -101,25 +101,5 @@ char	**ft_split(char const *s, int c)
 			s = s + size_of_word((char *)s);
 		}
 	}
-	return ((char**)dest);
+	return ((char **)dest);
 }
-/*
-int				main(void)
-{
-	char	**tab;
-	unsigned int	i;
-
-	i = 0;
-	int j;
-	char *str = "1     2       3 4     5   6  7     8  9   0";
-	j = count_space(str);
-	tab = ft_split(str, j);
-	if (!tab[0])
-		ft_putendl_fd("ok\n", 1);
-	while (tab[i] != NULL)
-	{
-		ft_putendl_fd(tab[i], 1);
-		i++;
-	}
-}
-*/

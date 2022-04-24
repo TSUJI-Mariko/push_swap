@@ -6,7 +6,7 @@
 #    By: mtsuji <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 16:21:07 by mtsuji            #+#    #+#              #
-#    Updated: 2022/01/20 15:42:55 by mtsuji           ###   ########.fr        #
+#    Updated: 2022/04/24 10:21:08 by mtsuji           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRCS	=	./srcs/push_swap.c	\
 			./srcs/number_separate.c	\
 			./srcs/quick_sort.c	\
 			./srcs/short_sort.c	\
-			./srcs/stack_create.c\
 			./srcs/stack_init.c\
 			./srcs/duplicate_check.c\
 			./srcs/radix_sort.c\
