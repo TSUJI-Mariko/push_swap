@@ -56,19 +56,20 @@ void	sort_5_elements(t_stacks *stacks)
 {
 	while (stacks->count_a > 3)
 	{
-		if (stacks->a->data < stacks->med)
-		{
+		if (stacks->a->data == stacks->min
+			|| stacks->a->data == stacks->max)
 			pb(stacks, 1);
-		}
 		else
 			ra(&stacks->a, 1);
 	}
 	short_sort(stacks);
-	while (stacks->count_b != 0)
+	pa(stacks, 1);
+	pa(stacks, 1);
+	if (stacks->a->data == stacks->max)
+		ra(&stacks->a, 1);
+	else
 	{
-		if (stacks->count_b == 2
-			&& stacks->b->data < stacks->b->next->data)
-			sb(stacks->b, 1);
-		pa(stacks, 1);
+		sa(stacks->a, 1);
+		ra(&stacks->a, 1);
 	}
 }
