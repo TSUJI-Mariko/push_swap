@@ -31,12 +31,13 @@ int	error_check(int argc, char **argv)
 	}
 	return (valid);
 }
-
+/*
 void	put_error(void)
 {
 	ft_putstr_fd("Error\n", 1);
 	exit (1);
 }
+*/
 
 void	string_check(const char *str)
 {

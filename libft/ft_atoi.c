@@ -12,9 +12,15 @@
 
 #include "libft.h"
 
+void	put_error(void)
+{
+	ft_putstr_fd("Error\n", 1);
+	exit (1);
+}
+
 int	ft_atoi(const char *str)
 {
-	unsigned long long	atoi;
+	long	atoi;
 	int					negative;
 
 	atoi = 0;
@@ -32,10 +38,10 @@ int	ft_atoi(const char *str)
 	{
 		atoi = atoi * 10 + *str - 48;
 		str++;
-		if (atoi > 9223372036854775806 && negative == -1)
-			return (0);
-		if (atoi > 9223372036854775807 && negative == 1)
-			return (-1);
+		if (atoi * negative > 2147483647)
+			put_error();
+		else if (atoi * negative < -2147483648)
+			put_error();
 	}
 	return ((int)atoi * negative);
 }

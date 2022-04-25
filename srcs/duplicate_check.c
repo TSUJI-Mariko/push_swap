@@ -50,8 +50,6 @@ int	*intcpy(int *dest, int *buff, int count)
 	{
 		dest[i] = buff[i];
 		i++;
-		if (buff[i] >= MAX_INT || buff[i] <= MIN_INT)
-			put_error();
 	}
 	return (dest);
 }
