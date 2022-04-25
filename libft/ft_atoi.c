@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 11:55:52 by mtsuji            #+#    #+#             */
-/*   Updated: 2021/06/07 17:18:53 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/04/25 18:36:04 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	put_error(void)
 int	ft_atoi(const char *str)
 {
 	long	atoi;
-	int					negative;
+	int		negative;
 
 	atoi = 0;
 	negative = 1;
