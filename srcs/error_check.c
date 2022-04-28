@@ -6,7 +6,7 @@
 /*   By: mtsuji <mtsuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:51:23 by mtsuji            #+#    #+#             */
-/*   Updated: 2022/04/21 17:49:03 by mtsuji           ###   ########.fr       */
+/*   Updated: 2022/04/28 13:42:53 by mtsuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ int	error_check(int argc, char **argv)
 	}
 	return (valid);
 }
-/*
-void	put_error(void)
-{
-	ft_putstr_fd("Error\n", 1);
-	exit (1);
-}
-*/
 
 void	string_check(const char *str)
 {
