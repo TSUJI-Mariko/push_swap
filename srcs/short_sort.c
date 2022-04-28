@@ -54,7 +54,7 @@ void	short_sort(t_stacks *stacks)
 
 void	sort_5_elements(t_stacks *stacks)
 {
-	while (stacks->count_a > 3)
+	while (stacks->count_b < 2)
 	{
 		if (stacks->a->data == stacks->min
 			|| stacks->a->data == stacks->max)
